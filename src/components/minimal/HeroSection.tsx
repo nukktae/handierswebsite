@@ -3,6 +3,11 @@
 import Image from "next/image";
 
 export default function HeroSection() {
+  const scrollToDownload = () => {
+    const element = document.getElementById('download');
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative bg-white overflow-hidden">
       {/* Background pattern */}
@@ -11,46 +16,18 @@ export default function HeroSection() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-black/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 pt-24 pb-12">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+      <div className="max-w-7xl mx-auto px-8 pt-16 pb-12">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left side - Image */}
-          <div className="flex-1 w-full max-w-xl lg:max-w-none relative">
-            <div className="relative w-full aspect-square">
+          <div className="flex-1 w-full max-w-2xl lg:max-w-none relative pt-8">
+            <div className="relative w-full aspect-[4/5]">
               <Image
-                src="/images/heroimage7.png"
+                src="/images/heroimagefinal.png"
                 alt="Handiers app interface"
                 fill
-                className="object-contain"
+                className="object-contain scale-110"
                 priority
               />
-              
-              {/* Floating labels */}
-              <div className="absolute top-1/4 right-0 bg-black text-white px-4 py-2 rounded-full z-20 flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                  </svg>
-                </div>
-                Find nearby handymen
-              </div>
-              
-              <div className="absolute bottom-1/3 left-0 bg-black text-white px-4 py-2 rounded-full z-20 flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                  </svg>
-                </div>
-                Trusted by locals
-              </div>
-              
-              <div className="absolute bottom-1/4 right-0 bg-black text-white px-4 py-2 rounded-full z-20 flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21 3H3C2 3 1 4 1 5v14c0 1.1.9 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zM5 17l3.5-4.5 2.5 3.01L14.5 11l4.5 6H5z" />
-                  </svg>
-                </div>
-                AI photo diagnosis
-              </div>
             </div>
           </div>
 
@@ -69,17 +46,22 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
+                onClick={scrollToDownload}
                 className="px-8 py-4 bg-black hover:bg-black/90 text-white rounded-xl font-medium transition-colors flex items-center justify-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
-                Download on the App Store
+                For Homeowners
               </button>
               <button 
-                className="px-8 py-4 border-black text-black hover:bg-black/5 border-2 rounded-xl font-medium transition-colors"
+                onClick={scrollToDownload}
+                className="px-8 py-4 border-black text-black hover:bg-black/5 border-2 rounded-xl font-medium transition-colors flex items-center justify-center gap-2"
               >
-                Get it on Google Play
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                For Professionals
               </button>
             </div>
           </div>
